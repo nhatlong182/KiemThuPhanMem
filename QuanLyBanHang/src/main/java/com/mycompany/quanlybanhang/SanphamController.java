@@ -39,17 +39,20 @@ public class SanphamController implements Initializable {
 
     @FXML
     private Label tensp;
+    @FXML
+    private Label mota;
 
     @FXML
     private Button btn;
     
     private String [] color = {"BDB2FE", "F3F3F3", "FF5056", "B9E5FF"};
     
-    public void setData(sanpham s) {
+    public void setData(sanpham s) {       
 //        Image image = new Image(getClass().getResourceAsStream("../../../../resources" + s.getHinhAnh()));
 //        img.setImage(image);
-        tensp.setText(s.getTenSP());
-        dongiasp.setText(s.getDonGia().toString());
+        tensp.setText("Tên sản phẩm: " + s.getTenSP());
+        dongiasp.setText("Đơn giá: " + s.getDonGia().toString());       
+        mota.setText("Mô tả: " + s.getMoTa());
 //        anchorPane.setStyle("-fx-background-color: " + Color.web(color[(int)(Math.random()*colors.length)]));
     }
     

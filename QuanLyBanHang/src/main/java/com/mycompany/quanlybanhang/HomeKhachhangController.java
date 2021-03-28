@@ -71,25 +71,25 @@ public class HomeKhachhangController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        int cot = 1, dong = 1;
+        int cot = 0, dong = 1;
         try {
             DSSP = new ArrayList<>(DSSP());
             
-            for (int i = 0; i < DSSP.size(); i++)
+            for (sanpham sp : DSSP)
             {
-                System.out.println(DSSP.get(i).getTenSP());
+                System.out.println(sp.getTenSP());
                 
                 FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("sanpham.fxml"));
                 AnchorPane box = fxmlloader.load();
                 SanphamController sanphamController = fxmlloader.getController();
-                sanphamController.setData(DSSP.get(i));
-                System.out.println("aaaa");
+                sanphamController.setData(sp);
                 
-                if(cot == 4)
+                
+                if(cot == 3)
                 {
                     cot = 0;
-                    ++dong;
+                    dong++;
                 }
                 
                 sanphamContainer.add(box, cot++, dong);

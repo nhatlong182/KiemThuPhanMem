@@ -31,12 +31,12 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+            <ScrollPane prefHeight="766.0" prefWidth="892.0" VBox.vgrow="ALWAYS">
                <content>
                   <GridPane fx:id="sanphamContainer" prefHeight="0.0" prefWidth="0.0">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                     </rowConstraints>
                   </GridPane>
                </content>
             </ScrollPane>

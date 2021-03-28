@@ -101,7 +101,7 @@ public class LoginController implements Initializable {
         else 
         {
             sql = "select * from taikhoankh where TenTaiKhoan = ? and MatKhau = ?";
-            home = "HomeCustomers.fxml";
+            home = "HomeKhachhang.fxml";
         }
         
         try {
