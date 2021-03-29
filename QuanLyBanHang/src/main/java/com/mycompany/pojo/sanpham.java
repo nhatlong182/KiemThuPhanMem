@@ -12,7 +12,7 @@ import java.math.BigDecimal;
  * @author NhatLong
  */
 public class sanpham {
-    private String MaSP;
+    private int MaSP;
     private String TenSP;
     private int SoLuongTon;
     private BigDecimal DonGia;
@@ -26,17 +26,11 @@ public class sanpham {
     /**
      * @return the MaSP
      */
-    public String getMaSP() {
+    public int getMaSP() {
         return MaSP;
     }
 
-    /**
-     * @param MaSP the MaSP to set
-     */
-    public void setMaSP(String MaSP) {
-        this.MaSP = MaSP;
-    }
-
+    
     /**
      * @return the TenSP
      */

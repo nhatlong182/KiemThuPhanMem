@@ -7,6 +7,7 @@ package com.mycompany.quanlybanhang;
 
 
 import com.mycompany.pojo.sanpham;
+import java.io.File;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.List;
@@ -45,15 +46,18 @@ public class SanphamController implements Initializable {
     @FXML
     private Button btn;
     
-    private String [] color = {"BDB2FE", "F3F3F3", "FF5056", "B9E5FF"};
+//    private String [] color = {"BDB2FE", "F3F3F3", "FF5056", "B9E5FF"};
     
-    public void setData(sanpham s) {       
-//        Image image = new Image(getClass().getResourceAsStream("../../../../resources" + s.getHinhAnh()));
-//        img.setImage(image);
+    public void setData(sanpham s) {    
+        //đường dẫn hình: ..\..\..\..\resources\Images\
+
+        File file = new File("../../../../../src/main/resources/Images/" + s.getHinhAnh());
+        Image image = new Image(file.toURI().toString(),600, 500, false, true);
+        img.setImage(image);       
         tensp.setText("Tên sản phẩm: " + s.getTenSP());
         dongiasp.setText("Đơn giá: " + s.getDonGia().toString());       
         mota.setText("Mô tả: " + s.getMoTa());
-//        anchorPane.setStyle("-fx-background-color: " + Color.web(color[(int)(Math.random()*colors.length)]));
+        
     }
     
     /**

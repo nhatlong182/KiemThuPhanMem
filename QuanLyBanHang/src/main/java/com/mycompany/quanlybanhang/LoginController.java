@@ -34,38 +34,55 @@ import javafx.stage.Stage;
  */
 public class LoginController implements Initializable {
 
-    @FXML
-    private AnchorPane pane_login;
-
-    @FXML
-    private Button btn_login;
-
-    @FXML
-    private TextField txt_username;
-
-    @FXML
+     @FXML
     private PasswordField txt_password;
 
     @FXML
-    private ComboBox type;
-
-    @FXML
-    private AnchorPane pane_signup;
+    private TextField txt_address_up;
 
     @FXML
     private ComboBox type_up;
 
     @FXML
-    private Button btn_signup;
+    private TextField txt_password_up;
+
+    @FXML
+    private AnchorPane pane_signup;
+
+    @FXML
+    private ComboBox type_sex_up;
+
+    @FXML
+    private Button btn_login;
+
+    @FXML
+    private ComboBox type;
+
+    @FXML
+    private TextField txt_lastname_up;
+
+    @FXML
+    private TextField txt_username;
+
+    @FXML
+    private TextField txt_firstname_up;
+
+    @FXML
+    private TextField txt_phonenumber_up;
 
     @FXML
     private TextField txt_username_up;
 
     @FXML
-    private TextField txt_password_up;
+    private AnchorPane pane_login;
 
     @FXML
-    private TextField email_up;
+    private Button btn_signup;
+
+    @FXML
+    private TextField txt_dayofbirth_up;
+
+    
     
     Connection conn = null;
     ResultSet rs = null;
@@ -173,6 +190,6 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         type_up.getItems().addAll("Nhân viên", "Khách hàng");
         type.getItems().addAll("Nhân viên", "Khách hàng"); 
-        
+        type_sex_up.getItems().addAll("Nam", "Nữ");
     }
 }

@@ -46,25 +46,8 @@ public class HomeKhachhangController implements Initializable {
     Connection conn;
     
     private List<sanpham> DSSP() throws SQLException {
-        conn = MySQLConnect.getConn();
-        Statement stm = this.conn.createStatement();
-        ResultSet r = stm.executeQuery("SELECT * FROM sanpham");
-        
-        List<sanpham> ls = new ArrayList<>();
-        while(r.next()) {
-            sanpham s = new sanpham();
-            s.setTenSP(r.getString("TenSP"));
-            s.setSoLuongTon(r.getInt("SoLuongTon"));
-            s.setDonGia(r.getBigDecimal("DonGia"));
-            s.setDonviTinh(r.getString("DonviTinh"));
-            s.setMoTa(r.getString("MoTa"));
-            s.setHinhAnh(r.getString("HinhAnh"));
-            s.setMaLoaiSP(r.getInt("MaLoaiSP"));
-            s.setMaNSX(r.getInt("MaNSX"));
-            
-            ls.add(s);
-        }
-        conn.close();
+        sanphamModel dssp = new sanphamModel(MySQLConnect.getConn());
+        List<sanpham> ls = new ArrayList<>(dssp.getSP());
         return ls;
     }
     
@@ -76,9 +59,7 @@ public class HomeKhachhangController implements Initializable {
             DSSP = new ArrayList<>(DSSP());
             
             for (sanpham sp : DSSP)
-            {
-                System.out.println(sp.getTenSP());
-                
+            {                             
                 FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("sanpham.fxml"));
                 AnchorPane box = fxmlloader.load();

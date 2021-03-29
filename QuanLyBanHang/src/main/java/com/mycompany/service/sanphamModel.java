@@ -29,7 +29,7 @@ public class sanphamModel {
         
         List<sanpham> ls = new ArrayList<>();
         while(r.next()) {
-            sanpham s = new sanpham();
+            sanpham s = new sanpham();           
             s.setTenSP(r.getString("TenSP"));
             s.setSoLuongTon(r.getInt("SoLuongTon"));
             s.setDonGia(r.getBigDecimal("DonGia"));
