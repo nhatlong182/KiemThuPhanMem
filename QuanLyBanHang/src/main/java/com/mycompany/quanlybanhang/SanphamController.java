@@ -51,8 +51,11 @@ public class SanphamController implements Initializable {
     public void setData(sanpham s) {    
         //đường dẫn hình: ..\..\..\..\resources\Images\
 
-        File file = new File("../../../../../src/main/resources/Images/" + s.getHinhAnh());
+        File file = new File("src/main/resources/Images/" + s.getHinhAnh());
+        //String url = "../../../../../src/main/resources/Images/" + s.getHinhAnh();
         Image image = new Image(file.toURI().toString(),600, 500, false, true);
+        //Image image = new Image(getClass().getResource(url));
+        System.out.println(file.toURI().toString());
         img.setImage(image);       
         tensp.setText("Tên sản phẩm: " + s.getTenSP());
         dongiasp.setText("Đơn giá: " + s.getDonGia().toString());       

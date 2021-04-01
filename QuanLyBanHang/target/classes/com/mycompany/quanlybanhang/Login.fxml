@@ -39,7 +39,7 @@
             </Button>
          </children>
       </HBox>
-      <AnchorPane fx:id="pane_login" layoutX="14.0" layoutY="174.0" prefHeight="396.0" prefWidth="703.0" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="154.0">
+      <AnchorPane fx:id="pane_login" layoutX="14.0" layoutY="174.0" prefHeight="396.0" prefWidth="703.0" visible="false" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="-0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="154.0">
          <children>
             <Button fx:id="btn_login" layoutX="95.0" layoutY="295.0" mnemonicParsing="false" onAction="#Login" prefHeight="58.0" prefWidth="488.0" style="-fx-background-color: #37CF88;" text="Login" textFill="#2c2929">
                <font>
@@ -69,9 +69,9 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="pane_signup" layoutX="89.0" layoutY="210.0" prefHeight="410.0" prefWidth="703.0" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="pane_signup" layoutX="89.0" layoutY="210.0" prefHeight="410.0" prefWidth="703.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <ComboBox fx:id="type_up" layoutX="331.0" layoutY="-2.0" prefHeight="36.0" prefWidth="334.0" promptText="Choose Type" />
+            <ComboBox fx:id="type_up" layoutX="331.0" layoutY="7.0" prefHeight="29.0" prefWidth="334.0" promptText="Loại tài khoản" />
             <Button fx:id="btn_signup" layoutX="35.0" layoutY="351.0" mnemonicParsing="false" onAction="#add_users" prefHeight="50.0" prefWidth="633.0" style="-fx-background-color: #37CF88;" text="Đăng ký" textFill="WHITE">
                <font>
                   <Font name="Tahoma Bold" size="21.0" />
@@ -82,42 +82,42 @@
                   <Image url="@2037710.png" />
                </image>
             </ImageView>
-            <TextField fx:id="txt_username_up" layoutX="331.0" layoutY="38.0" prefHeight="36.0" prefWidth="334.0" promptText="tài khoản">
+            <TextField fx:id="txt_username_up" layoutX="331.0" layoutY="43.0" prefHeight="29.0" prefWidth="334.0" promptText="tài khoản">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txt_password_up" layoutX="331.0" layoutY="77.0" prefHeight="36.0" prefWidth="334.0" promptText="mật khẩu">
+            <TextField fx:id="txt_firstname_up" layoutX="331.0" layoutY="116.0" prefHeight="29.0" prefWidth="334.0" promptText="Họ">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txt_firstname_up" layoutX="331.0" layoutY="116.0" prefHeight="36.0" prefWidth="334.0" promptText="Họ">
+            <TextField fx:id="txt_lastname_up" layoutX="331.0" layoutY="155.0" prefHeight="29.0" prefWidth="334.0" promptText="Tên">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txt_lastname_up" layoutX="331.0" layoutY="155.0" prefHeight="36.0" prefWidth="334.0" promptText="Tên">
+            <TextField fx:id="txt_dayofbirth_up" layoutX="331.0" layoutY="234.0" prefHeight="29.0" prefWidth="334.0" promptText="Ngày sinh">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txt_dayofbirth_up" layoutX="331.0" layoutY="234.0" prefHeight="36.0" prefWidth="334.0" promptText="Ngày sinh">
+            <TextField fx:id="txt_address_up" layoutX="331.0" layoutY="273.0" prefHeight="29.0" prefWidth="334.0" promptText="Địa chỉ">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txt_address_up" layoutX="331.0" layoutY="273.0" prefHeight="36.0" prefWidth="334.0" promptText="Địa chỉ">
+            <TextField fx:id="txt_phonenumber_up" layoutX="331.0" layoutY="312.0" prefHeight="29.0" prefWidth="334.0" promptText="số điện thoại">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txt_phonenumber_up" layoutX="331.0" layoutY="312.0" prefHeight="36.0" prefWidth="334.0" promptText="số điện thoại">
+            <ComboBox fx:id="type_sex_up" layoutX="331.0" layoutY="194.0" prefHeight="29.0" prefWidth="334.0" promptText="Giới tính" />
+            <PasswordField fx:id="txt_password_up" layoutX="331.0" layoutY="80.0" prefHeight="29.0" prefWidth="334.0" promptText="mật khẩu">
                <font>
-                  <Font name="Tahoma Bold" size="15.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
-            </TextField>
-            <ComboBox fx:id="type_sex_up" layoutX="331.0" layoutY="194.0" prefHeight="36.0" prefWidth="334.0" promptText="Giới tính" />
+            </PasswordField>
          </children>
       </AnchorPane>
    </children>

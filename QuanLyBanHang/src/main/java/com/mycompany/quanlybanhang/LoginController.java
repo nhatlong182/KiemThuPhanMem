@@ -47,8 +47,9 @@ public class LoginController implements Initializable {
     @FXML
     private ComboBox type_up;
 
+   
     @FXML
-    private TextField txt_password_up;
+    private PasswordField txt_password_up;
 
     @FXML
     private AnchorPane pane_signup;
@@ -86,7 +87,7 @@ public class LoginController implements Initializable {
     @FXML
     private TextField txt_dayofbirth_up;
 
-    SimpleDateFormat formatter = new SimpleDateFormat("dd/MMM/yyyy"); 
+//    SimpleDateFormat formatter = new SimpleDateFormat("dd/MMM/yyyy"); 
     
     Connection conn = null;
     Statement stm = null;
@@ -219,19 +220,35 @@ public class LoginController implements Initializable {
             alert.setHeaderText("Xin lỗi:");
             alert.setContentText("Tên tài khoản không được chứa kí tự đặc biệt");
             alert.showAndWait();
-        }
+        }   else if(type_sex_up.getValue() == null)
+        {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText("Xin lỗi:");
+            alert.setContentText("Xin hãy chọn giới tính");
+            alert.showAndWait();
+        }   else if(txt_firstname_up.getText() == "" || txt_lastname_up.getText() == "")
+        {
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Thông báo");
+            alert.setHeaderText("Xin lỗi:");
+            alert.setContentText("Xin hãy điền đầy đủ thông tin họ tên");
+            alert.showAndWait();
+        }   
         else 
         {
             if(type_up.getValue().toString() == "Nhân viên")
             {
-                sql1 = "insert into nhanvien (HoNV,TenNV,GioiTinh,NgaySinh,DiaChi,DienThoai) values (?,?,?,?,?,?)";
+                //,NgaySinh ,?
+                sql1 = "insert into nhanvien (HoNV,TenNV,GioiTinh,DiaChi,DienThoai) values (?,?,?,?,?)";
                 sql2 = "insert into taikhoannv (TenTaiKhoan,MatKhau,MaNV) values (?,?,?)";
                 sql3 = "select * from nhanvien order by MaNV desc limit 1;";
             }
             else
             {
-                sql1 = "insert into nhanvien (HoNV,TenNV,GioiTinh,NgaySinh,DiaChi,DienThoai) values (?,?,?,?,?,?)";
-                sql2 = "insert into taikhoannv (TenTaiKhoan,MatKhau,MaNV) values (?,?,?)";
+                //,NgaySinh  ,?
+                sql1 = "insert into khachhang (HoKH,TenKH,GioiTinh,DiaChi,DienThoai) values (?,?,?,?,?)";
+                sql2 = "insert into taikhoankh (TenTaiKhoan,MatKhau,MaKH) values (?,?,?)";
                 sql3 = "select * from khachhang order by MaKH desc limit 1;";
             }
 
@@ -252,15 +269,15 @@ public class LoginController implements Initializable {
                 pst1.setString(3, type_sex_up.getValue().toString());
 //                Date date = formatter.parse(txt_dayofbirth_up.getText());
 //                pst1.setDate(4, (java.sql.Date) date);
-                pst1.setString(5, txt_address_up.getText());
-                
-                pst1.setString(6, txt_phonenumber_up.getText());
+                pst1.setString(4, txt_address_up.getText());
+                pst1.setString(5, txt_phonenumber_up.getText());
                 pst1.execute();
+                
                 //them du lieu vao bang tai khoan
                 pst2 = conn.prepareStatement(sql2);
                 pst2.setString(1, txt_username_up.getText());
-                pst2.setString(1, txt_password_up.getText());
-                pst2.setString(3, (id+1));
+                pst2.setString(2, txt_password_up.getText());
+                pst2.setInt(3, id+1);
                 pst2.execute();
                 
                 Alert alert = new Alert(AlertType.INFORMATION);
@@ -270,7 +287,11 @@ public class LoginController implements Initializable {
                 alert.showAndWait();
                 txt_username_up.setText("");
                 txt_password_up.setText("");
-
+                txt_address_up.setText("");
+                txt_dayofbirth_up.setText("");
+                txt_firstname_up.setText("");
+                txt_lastname_up.setText("");
+                txt_phonenumber_up.setText("");
 
             } catch (Exception e) {
                e.printStackTrace();
@@ -279,14 +300,13 @@ public class LoginController implements Initializable {
                 pst2.close();
                 conn.close();
         }
-        
-        
     }
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         type_up.getItems().addAll("Nhân viên", "Khách hàng");
         type.getItems().addAll("Nhân viên", "Khách hàng"); 
-        type_sex_up.getItems().addAll("Nam", "Nữ");
+        type_sex_up.getItems().addAll("Nam", "Nữ", "Khác");
     }
 }
