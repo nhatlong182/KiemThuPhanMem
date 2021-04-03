@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="890.0" prefWidth="1110.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.quanlybanhang.HomeKhachhangController">
+   <top>
+      <HBox prefHeight="67.0" prefWidth="233.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="320.0" text="Vật liệu xây dựng" textFill="RED">
+               <font>
+                  <Font name="Times New Roman" size="24.0" />
+               </font>
+            </Label>
+            <Separator orientation="VERTICAL" prefHeight="36.0" prefWidth="2.0">
+               <HBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </HBox.margin>
+            </Separator>
+            <Label prefHeight="67.0" prefWidth="297.0" text="Danh sách sản phẩm" textFill="#f80202">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Times New Roman Bold" size="24.0" />
+               </font>
+            </Label>
+            <AnchorPane prefHeight="67.0" prefWidth="446.0">
+               <children>
+                  <Button fx:id="btn_goToCart" layoutX="276.0" layoutY="9.0" mnemonicParsing="false" onAction="#goToCart" prefHeight="49.0" prefWidth="148.0" styleClass="#record-sales" stylesheets="@style.css" text="Xem giỏ hàng" />
+                  <ImageView fitHeight="34.0" fitWidth="200.0" layoutX="217.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../Images/giohang.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </top>
+   <left>
+      <VBox prefHeight="823.0" prefWidth="323.0" BorderPane.alignment="CENTER" />
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <ScrollPane prefHeight="766.0" prefWidth="892.0" VBox.vgrow="ALWAYS">
+               <content>
+                  <GridPane fx:id="sanphamContainer" prefHeight="0.0" prefWidth="0.0">
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" />
+                     </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

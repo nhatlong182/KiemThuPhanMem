@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.quanlybanhang.thongTinSPController">
+   <children>
+      <Label fx:id="TenSP" alignment="CENTER" layoutX="14.0" layoutY="55.0" prefHeight="40.0" prefWidth="229.0" text="tên" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
+      <HBox layoutX="-8.0" prefHeight="55.0" prefWidth="600.0">
+         <children>
+            <Label alignment="CENTER" prefHeight="54.0" prefWidth="346.0" text="Thông tin sản phẩm" textAlignment="CENTER" textFill="#ff0606">
+               <font>
+                  <Font name="Tahoma Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+         <padding>
+            <Insets left="190.0" right="190.0" />
+         </padding>
+      </HBox>
+      <Label fx:id="donGia" alignment="CENTER" layoutX="14.0" layoutY="114.0" prefHeight="40.0" prefWidth="229.0" text="đơn giá" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="SLton" alignment="CENTER" layoutX="14.0" layoutY="180.0" prefHeight="40.0" prefWidth="229.0" text="số lượng trong kho" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="img" fitHeight="200.0" fitWidth="250.0" layoutX="264.0" layoutY="54.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../Images/SatPhi15.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="SL" layoutX="328.0" layoutY="276.0" prefHeight="25.0" prefWidth="76.0" text="1">
+         <font>
+            <Font name="Arial Bold" size="12.0" />
+         </font>
+      </TextField>
+      <Label layoutX="264.0" layoutY="276.0" prefHeight="25.0" prefWidth="57.0" text="Số lượng:" textFill="RED" />
+      <Button layoutX="392.0" layoutY="313.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="40.0" prefWidth="125.0" text="Thêm vào giỏ hàng" />
+      <Button fx:id="goBackBtn" layoutX="259.0" layoutY="313.0" mnemonicParsing="false" onAction="#goBack" prefHeight="40.0" prefWidth="125.0" text="Tiếp tục mua sắm" />
+   </children>
+</AnchorPane>

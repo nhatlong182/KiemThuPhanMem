@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.quanlybanhang.HomeNhanVienController">
+   <children>
+      <TableView fx:id="tableSP" layoutX="51.0" layoutY="73.0" prefHeight="463.0" prefWidth="644.0">
+        <columns>
+          <TableColumn fx:id="MaSP" prefWidth="85.0" text="Mã sản phẩm" />
+          <TableColumn fx:id="TenSP" prefWidth="166.0" text="Tên sản phẩm" />
+            <TableColumn fx:id="DonGia" prefWidth="166.0" text="Đơn giá" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
