@@ -6,6 +6,7 @@
 package com.mycompany.service;
 
 import com.mycompany.pojo.sanpham;
+import com.mycompany.pojo.hoadon;
 import com.mycompany.quanlybanhang.MySQLConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -33,10 +34,11 @@ public class sanphamModel {
         
         List<sanpham> ls = new ArrayList<>();
         while(r.next()) {
-            sanpham s = new sanpham();           
+            sanpham s = new sanpham();
+            s.setMaSP(r.getInt("MaSP"));
             s.setTenSP(r.getString("TenSP"));
             s.setSoLuongTon(r.getInt("SoLuongTon"));
-            s.setDonGia(r.getBigDecimal("DonGia"));
+            s.setDonGia(r.getDouble("DonGia"));
             s.setDonviTinh(r.getString("DonviTinh"));
             s.setMoTa(r.getString("MoTa"));
             s.setHinhAnh(r.getString("HinhAnh"));
@@ -47,27 +49,24 @@ public class sanphamModel {
         }
         return ls;
     }
+    public ObservableList<hoadon> getObserDH() throws SQLException {
+        Connection conn = MySQLConnect.getConn();
+        Statement stm = conn.createStatement();
+        ResultSet r = stm.executeQuery("SELECT * FROM hoadon");
+        
+        ObservableList<hoadon> ls = FXCollections.observableArrayList();
+        while(r.next()) {
+            hoadon s = new hoadon();           
+            s.setMaHD(r.getInt("MaHD"));
+            s.setNgayDatHang(r.getDate("NgayDatHang"));
+            s.setMaKH(r.getInt("MaKH"));
+            s.setMaNV(r.getInt("MaNV"));
+         
+            ls.add(s);
+        }
+        return ls;
+    }
     
-//    public boolean AddNew(sanpham sp) throws SQLException {
-//        Statement stm = this.conn.createStatement();
-//        
-//        String sql = "insert into sanpham (TenSP,SoLuongTon,DonGia,DonviTinh,MoTa,HinhAnh,MaLoaiSP,MaNSX) values("
-//                    + "'" + sp.getTenSP()
-//                    + "'," + sp.getSoLuongTon()
-//                    + "," + sp.getDonGia()
-//                    + "," + sp.getDonviTinh()
-//                    + ",'" + sp.getMoTa()
-//                    + "','" + sp.getHinhAnh()
-//                    + "'," + sp.getMaLoaiSP()
-//                    + "," + sp.getMaNSX() + ")";
-//        try {
-//            stm.executeUpdate(sql);
-//            
-//        } catch (Exception ex) {
-//            ex.printStackTrace();
-//        }
-//        return false;
-//    }
     
     public ObservableList<sanpham> getObserSP() throws SQLException {
         Connection conn = MySQLConnect.getConn();
@@ -80,7 +79,7 @@ public class sanphamModel {
             s.setMaSP(r.getInt("MaSP"));
             s.setTenSP(r.getString("TenSP"));
             s.setSoLuongTon(r.getInt("SoLuongTon"));
-            s.setDonGia(r.getBigDecimal("DonGia"));
+            s.setDonGia(r.getDouble("DonGia"));
             s.setDonviTinh(r.getString("DonviTinh"));
             s.setMoTa(r.getString("MoTa"));
             s.setMaLoaiSP(r.getInt("MaLoaiSP"));

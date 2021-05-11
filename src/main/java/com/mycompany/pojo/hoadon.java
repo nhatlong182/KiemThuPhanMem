@@ -14,7 +14,6 @@ import java.util.Date;
 public class hoadon {
     private int MaHD;
     private Date NgayDatHang;
-    private Date NgayGiaoHang;
     private int MaKH;
     private int MaNV;
 
@@ -39,19 +38,6 @@ public class hoadon {
         this.NgayDatHang = NgayDatHang;
     }
 
-    /**
-     * @return the NgayGiaoHang
-     */
-    public Date getNgayGiaoHang() {
-        return NgayGiaoHang;
-    }
-
-    /**
-     * @param NgayGiaoHang the NgayGiaoHang to set
-     */
-    public void setNgayGiaoHang(Date NgayGiaoHang) {
-        this.NgayGiaoHang = NgayGiaoHang;
-    }
 
     /**
      * @return the MaKH
@@ -79,5 +65,12 @@ public class hoadon {
      */
     public void setMaNV(int MaNV) {
         this.MaNV = MaNV;
+    }
+
+    /**
+     * @param MaHD the MaHD to set
+     */
+    public void setMaHD(int MaHD) {
+        this.MaHD = MaHD;
     }
 }

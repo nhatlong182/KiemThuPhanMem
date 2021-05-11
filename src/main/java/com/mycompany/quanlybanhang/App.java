@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 
 /**
  * JavaFX App
@@ -22,11 +23,12 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("HomeNhanVien"));
+        scene = new Scene(loadFXML("Login"));
         stage.setScene(scene);
         stage.setTitle("Quản Lý Bán Hàng");
         stage.show();
         
+        scene.getWindow().setOnCloseRequest(e -> Platform.exit());
         
     }
 

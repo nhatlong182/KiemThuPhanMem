@@ -17,14 +17,25 @@ public class sanpham {
     private int MaSP;
     private String TenSP;
     private int SoLuongTon;
-    private BigDecimal DonGia;
+    private Double DonGia;
     private String DonviTinh;
     private String MoTa;
     private String HinhAnh;
     private int MaLoaiSP;
     private int MaNSX;
-    
 
+    
+    public sanpham(int MaSP,String TenSP,int SoLuongTon,Double DonGia,String DonviTinh,String MoTa,int MaLoaiSP,int MaNSX){
+        this.MaSP = MaSP;
+        this.TenSP = TenSP;
+        this.SoLuongTon = SoLuongTon;
+        this.DonGia = DonGia;
+        this.DonviTinh = DonviTinh;
+        this.MoTa = MoTa;
+        this.MaLoaiSP = MaLoaiSP;
+        this.MaNSX = MaNSX;
+    }
+    public sanpham(){}
     /**
      * @return the MaSP
      */
@@ -66,14 +77,14 @@ public class sanpham {
     /**
      * @return the DonGia
      */
-    public BigDecimal getDonGia() {
+    public Double getDonGia() {
         return DonGia;
     }
 
     /**
      * @param DonGia the DonGia to set
      */
-    public void setDonGia(BigDecimal DonGia) {
+    public void setDonGia(Double DonGia) {
         this.DonGia = DonGia;
     }
 

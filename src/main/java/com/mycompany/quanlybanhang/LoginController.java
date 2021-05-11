@@ -5,6 +5,7 @@
  */
 package com.mycompany.quanlybanhang;
 
+import Services.Utils;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +31,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 
 /**
@@ -87,7 +90,7 @@ public class LoginController implements Initializable {
     @FXML
     private TextField txt_dayofbirth_up;
 
-//    SimpleDateFormat formatter = new SimpleDateFormat("dd/MMM/yyyy"); 
+
     
     Connection conn = null;
     Statement stm = null;
@@ -97,6 +100,7 @@ public class LoginController implements Initializable {
     public void LoginPaneShow(){
         pane_login.setVisible(true);
         pane_signup.setVisible(false);
+        
     }
     
     public void SignUpPaneShow(){
@@ -108,6 +112,10 @@ public class LoginController implements Initializable {
         conn = MySQLConnect.getConn();
         String sql = "";
         String home = "";
+
+        String tendangnhap = txt_username.getText();
+        String matkhau = txt_password.getText();
+        
         if(type.getValue() == null) {
             Alert alert = new Alert(AlertType.INFORMATION);
                 alert.setTitle("Thông báo");
@@ -137,39 +145,29 @@ public class LoginController implements Initializable {
             alert.setContentText("Tên tài khoản không được chứa kí tự đặc biệt");
             alert.showAndWait();
         }
-        else 
-        {
-            if (type.getValue().toString() == "Nhân viên")
+        else if(Utils.kiemTraDangNhap(tendangnhap,matkhau)){
+           
+             btn_login.getScene().getWindow().hide();
+           
+            if (type.getValue().toString() == "Khách hàng")
             {
-                sql = "select * from taikhoannv where TenTaiKhoan = ? and MatKhau = ?";
-                home = "HomeEmployee.fxml";
+                sql = "select * from taikhoankh where TenTaiKhoan = ? and MatKhau = ?";
+                home = "HomeKhachHang.fxml";
+                
             }
             else 
             {
-                sql = "select * from taikhoankh where TenTaiKhoan = ? and MatKhau = ?";
-                home = "HomeKhachhang.fxml";
+                sql = "select * from taikhoannv where TenTaiKhoan = ? and MatKhau = ?";
+                home = "HomeNhanVien.fxml";
             }
-        
-            try {
-                pst1 = conn.prepareStatement(sql);
-                pst1.setString(1, txt_username.getText());
-                pst1.setString(2, txt_password.getText());
-                rs = pst1.executeQuery();
-
-                if(rs.next()){ 
-                    Alert alert = new Alert(AlertType.INFORMATION);
-                    alert.setTitle("Thông báo");
-                    alert.setHeaderText("Chúc mừng:");
-                    alert.setContentText("Bạn đã đăng nhập thành công!!!");
-                    alert.showAndWait();
-
                     btn_login.getScene().getWindow().hide();
                     Parent root = FXMLLoader.load(getClass().getResource(home));
                     Stage mainStage = new Stage();
                     Scene scene = new Scene(root);
                     mainStage.setScene(scene);
-                    mainStage.show();  
-                }
+                    mainStage.show(); 
+
+            }
                 else
                 {
                     Alert alert = new Alert(AlertType.INFORMATION);
@@ -178,16 +176,11 @@ public class LoginController implements Initializable {
                     alert.setContentText("Tài khoản hoặc mật khẩu không chính xác!!!");               
                     alert.showAndWait();
                 }                             
-            } catch(Exception e) {
-                    e.printStackTrace();
-              }
-            rs.close();
-            conn.close();
+                    
+              
         }
+
         
-        
-    }
-    
     public void add_users(ActionEvent event) throws SQLException{    
         conn = MySQLConnect.getConn();        
         String sql1 = "", sql2 = "", sql3 = "";
@@ -239,14 +232,12 @@ public class LoginController implements Initializable {
         {
             if(type_up.getValue().toString() == "Nhân viên")
             {
-                //,NgaySinh ,?
                 sql1 = "insert into nhanvien (HoNV,TenNV,GioiTinh,DiaChi,DienThoai) values (?,?,?,?,?)";
                 sql2 = "insert into taikhoannv (TenTaiKhoan,MatKhau,MaNV) values (?,?,?)";
                 sql3 = "select * from nhanvien order by MaNV desc limit 1;";
             }
             else
             {
-                //,NgaySinh  ,?
                 sql1 = "insert into khachhang (HoKH,TenKH,GioiTinh,DiaChi,DienThoai) values (?,?,?,?,?)";
                 sql2 = "insert into taikhoankh (TenTaiKhoan,MatKhau,MaKH) values (?,?,?)";
                 sql3 = "select * from khachhang order by MaKH desc limit 1;";

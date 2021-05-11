@@ -53,16 +53,18 @@ public class SanphamController implements Initializable {
     private Button btn;
     private int SLton;
     private Image image;
+    private int idSP;
     
-//    private String [] color = {"BDB2FE", "F3F3F3", "FF5056", "B9E5FF"};
+
     
     public void setData(sanpham s) {    
         File file = new File("src/main/resources/Images/" + s.getHinhAnh());
         image = new Image(file.toURI().toString(),600, 500, false, true);
-        img.setImage(image);       
-        tensp.setText("Tên sản phẩm: " + s.getTenSP());
-        dongiasp.setText("Đơn giá: " + s.getDonGia().toString());       
-        mota.setText("Mô tả: " + s.getMoTa());
+        img.setImage(image);
+        idSP = s.getMaSP();
+        tensp.setText(s.getTenSP());
+        dongiasp.setText(s.getDonGia().toString());       
+        mota.setText(s.getMoTa());
         SLton = s.getSoLuongTon();
     }
     
@@ -71,7 +73,7 @@ public class SanphamController implements Initializable {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("thongTinSP.fxml"));
         Parent root = loader.load();
         thongTinSPController thongTinSPController = loader.getController();
-        thongTinSPController.setInf(tensp.getText(), dongiasp.getText(), String.valueOf(SLton), image.getUrl());
+        thongTinSPController.setInf(idSP, tensp.getText(), dongiasp.getText(), String.valueOf(SLton), image.getUrl());
         
         Stage stage = new Stage();
         stage.setScene(new Scene(root));

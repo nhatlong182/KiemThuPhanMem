@@ -24,7 +24,7 @@ public class MySQLConnect {
     }
     
     public static Connection getConn() throws SQLException {     
-        conn = DriverManager.getConnection("jdbc:mysql://localhost/vlxd", "root", "mayman789");
+        conn = DriverManager.getConnection("jdbc:mysql://localhost:3308/vlxd", "root", "17102000");
         return conn;
     }    
           
