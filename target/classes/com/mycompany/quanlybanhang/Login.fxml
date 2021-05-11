@@ -97,17 +97,12 @@
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txt_dayofbirth_up" layoutX="331.0" layoutY="234.0" prefHeight="29.0" prefWidth="334.0" promptText="Ngày sinh">
+            <TextField fx:id="txt_address_up" layoutX="331.0" layoutY="235.0" prefHeight="29.0" prefWidth="334.0" promptText="Địa chỉ">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="txt_address_up" layoutX="331.0" layoutY="273.0" prefHeight="29.0" prefWidth="334.0" promptText="Địa chỉ">
-               <font>
-                  <Font name="Tahoma Bold" size="15.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="txt_phonenumber_up" layoutX="331.0" layoutY="312.0" prefHeight="29.0" prefWidth="334.0" promptText="số điện thoại">
+            <TextField fx:id="txt_phonenumber_up" layoutX="331.0" layoutY="275.0" prefHeight="29.0" prefWidth="334.0" promptText="số điện thoại">
                <font>
                   <Font name="Tahoma Bold" size="15.0" />
                </font>

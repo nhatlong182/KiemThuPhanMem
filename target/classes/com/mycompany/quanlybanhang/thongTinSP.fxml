@@ -9,7 +9,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="374.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.quanlybanhang.thongTinSPController">
+<AnchorPane id="AnchorPane" fx:id="ap" prefHeight="374.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.quanlybanhang.thongTinSPController">
    <children>
       <Label fx:id="TenSP" alignment="CENTER" layoutX="14.0" layoutY="55.0" prefHeight="40.0" prefWidth="229.0" text="tên" wrapText="true">
          <font>
@@ -32,7 +32,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="SLton" alignment="CENTER" layoutX="14.0" layoutY="180.0" prefHeight="40.0" prefWidth="229.0" text="số lượng trong kho" wrapText="true">
+      <Label fx:id="SLton" alignment="CENTER" layoutX="129.0" layoutY="183.0" prefHeight="25.0" prefWidth="64.0" text="3000" wrapText="true">
          <font>
             <Font size="14.0" />
          </font>
@@ -50,5 +50,10 @@
       <Label layoutX="264.0" layoutY="276.0" prefHeight="25.0" prefWidth="57.0" text="Số lượng:" textFill="RED" />
       <Button layoutX="392.0" layoutY="313.0" mnemonicParsing="false" onAction="#addToCart" prefHeight="40.0" prefWidth="125.0" text="Thêm vào giỏ hàng" />
       <Button fx:id="goBackBtn" layoutX="259.0" layoutY="313.0" mnemonicParsing="false" onAction="#goBack" prefHeight="40.0" prefWidth="125.0" text="Tiếp tục mua sắm" />
+      <Label fx:id="SLton1" alignment="CENTER" layoutX="27.0" layoutY="175.0" prefHeight="40.0" prefWidth="116.0" text="Còn trong kho:" wrapText="true">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

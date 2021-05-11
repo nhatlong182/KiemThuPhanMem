@@ -45,7 +45,14 @@
       </HBox>
    </top>
    <left>
-      <VBox prefHeight="823.0" prefWidth="323.0" BorderPane.alignment="CENTER" />
+      <VBox prefHeight="823.0" prefWidth="323.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnLogout" mnemonicParsing="false" onAction="#Logout" prefHeight="38.0" prefWidth="103.0" text="Đăng xuất">
+               <VBox.margin>
+                  <Insets left="100.0" top="750.0" />
+               </VBox.margin>
+            </Button>
+         </children></VBox>
    </left>
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
